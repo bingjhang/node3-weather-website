@@ -11,9 +11,9 @@ request({url, json:true},(error, {body}) => {
     callback("Unable to find locatioin.Try another search.", undefined);
     }
     else{
-    callback(undefined,"Its is currently "+body.current.temperature+" degrees out."+"There is a "+body.current.precip+"%"+" chance of rain.")
-    }
-})
+    callback(undefined,body.current.weather_descriptions[0] + "Its is currently "+body.current.temperature+" degree out. It feels like " + 
+    body.current.feelslike + "degress out. The humidity is " + body.current.humidity + "%.")
+}}
+)
 }
-
 module.exports = forecast
